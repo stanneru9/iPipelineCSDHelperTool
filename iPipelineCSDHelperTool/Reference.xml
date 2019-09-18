@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <arguments>
+    <CsdFilePath>C:\Users\stanneru\Desktop\conversionTest\TransIUL.csd</CsdFilePath>
+    <ConfigFilePath>C:\Users\stanneru\Desktop\conversionTest\TransIUL.config</ConfigFilePath>
+    <ProjectPath>C:\Users\stanneru\Desktop\conversionTest</ProjectPath>
+    <LogObjectListPath>C:\Users\stanneru\Desktop\conversionTest\logs</LogObjectListPath>
+  </arguments>
+  <Objects>
+    <Object Type="CheckBox">
+      <Source>X</Source>
+      <Target>true</Target>
+      <FileTypes>*.vb|*.xsl</FileTypes>
+    </Object>
+    <Object Type="DateTime">
+      <Source></Source>
+      <Target>_fmt</Target>
+      <FileTypes>*.pdf</FileTypes>
+    </Object>
+  </Objects>
+</Configuration>
