@@ -32,7 +32,17 @@ namespace Helper
         
         public Dictionary<String,String> SearchObjects(String type)
         {
-            foreach (XmlNode node in csd.SelectNodes(String.Format("//Screens/Screen/Objects/Object/Properties/Property[@Name='Type' and text()='{0}']", type)))
+            XmlNodeList nodes;
+            if (type.Equals("*"))
+            {
+               nodes  = csd.SelectNodes(String.Format("//Screens/Screen/Objects/Object/Properties/Property[@Name='{0}']", "Type"));
+            }
+            else
+            {
+               nodes = csd.SelectNodes(String.Format("//Screens/Screen/Objects/Object/Properties/Property[@Name='Type' and text()='{0}']", type));
+            }
+            
+            foreach (XmlNode node in nodes)
             {
                 List<String> list = new List<string>();
                 String objectName = node.ParentNode.ParentNode.Attributes["Name"].Value;
@@ -123,7 +133,14 @@ namespace Helper
             FileStream fs;    
             if(!Path.HasExtension(path))
             {
-                fileName = String.Format("{0}ObjectList.txt", type);
+                if (type.Equals("*"))
+                {
+                    fileName = "AllObjectsList.txt";
+                }
+                else
+                {
+                    fileName = String.Format("{0}ObjectList.txt", type);
+                }
                 fileName = Path.Combine(path, fileName);
             }
             else if(Path.HasExtension(path))

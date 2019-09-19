@@ -55,12 +55,20 @@ namespace iPipelineCSDHelperTool
                 {
                     throw new Exception("No node named 'LogObjectListPath' found in the reference file");
                 }
-                
+
+                Helper.Helper helper = null;
+                if (document.SelectSingleNode("//CsdFilePath").Attributes["GetAllObjects"].Value.ToUpper().Equals("TRUE"))
+                {
+                    helper = new Helper.Helper(csdFilePath, configFilePath, objectLogFilePath);
+                    helper.SearchObjects("*");
+                    helper = null;
+                }
+
                 String objectType = String.Empty;
                 String source = String.Empty;
                 String target = String.Empty;
                 String fileTypes = String.Empty;
-                Helper.Helper helper = null;
+                
                 if (document.SelectSingleNode("//Objects").HasChildNodes)
                 {
                     foreach(XmlNode node in document.SelectNodes("//Object"))
@@ -89,6 +97,7 @@ namespace iPipelineCSDHelperTool
                             {
                                 continue;
                             }
+                            
                             objectType = node.Attributes["Type"].Value;
 
                             switch (objectType)

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configuration>
   <arguments>
-    <CsdFilePath>C:\Users\stanneru\Desktop\conversionTest\TransIUL.csd</CsdFilePath>
+    <CsdFilePath GetAllObjects="True">C:\Users\stanneru\Desktop\conversionTest\TransIUL.csd</CsdFilePath>
     <ConfigFilePath>C:\Users\stanneru\Desktop\conversionTest\TransIUL.config</ConfigFilePath>
     <ProjectPath>C:\Users\stanneru\Desktop\conversionTest</ProjectPath>
     <LogObjectListPath>C:\Users\stanneru\Desktop\conversionTest\logs</LogObjectListPath>
